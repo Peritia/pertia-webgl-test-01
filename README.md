@@ -1,2 +1,1 @@
-pertia-webgl-test-01
-====================
+This repository is my first test in WebGL scripting. It uses Three.JS.
