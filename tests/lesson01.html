@@ -30,7 +30,7 @@ function webgl_init() {
 
 function webgl_add_objects() {
   var cube_geometry = new THREE.CubeGeometry(1,1,1);
-  var cube_texture = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
+  var cube_texture = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
   var cube_mesh = new THREE.Mesh(cube_geometry, cube_texture);
   cube_mesh.position.z = 5;
   objects.push(cube_mesh);
@@ -39,7 +39,6 @@ function webgl_add_objects() {
 }
 
 function webgl_render() {
-  console.log("rendering...");
   requestAnimationFrame(webgl_render);
   renderer.render(scene, camera);
 }
