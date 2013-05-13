@@ -7,6 +7,8 @@
 var scene, renderer, camera, objects = [], lights = [];
 function webgl_start() {
   webgl_init();
+  webgl_add_objects();
+  webgl_render();
 }
 
 function webgl_init() {
@@ -17,18 +19,28 @@ function webgl_init() {
   var camera_near_clip = 0.1;
   var camera_far_clip = 1000;
   
-  scene = new Three.Scene();
-  camera = new Three.PerspectiveCamera(camera_field_of_view, camera_aspect_ratio, camera_near_clip, camera_far_clip);
-  renderer = new Three.WebGLRenderer();
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(camera_field_of_view, camera_aspect_ratio, camera_near_clip, camera_far_clip);
+  renderer = new THREE.WebGLRenderer();
   
   renderer.setSize(scene_width, scene_height);
   document.getElementByID("container").appendChild(renderer.domElement);
 }
 
 function webgl_add_objects() {
+  var cube_geometry = new THREE.CubeGeometry(1,1,1);
+  var cube_texture = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
+  var cube_mesh = new THREE.Mesh(cube_geometry, cube_texture);
+  cube_mesh.position.set(5, 5, 0)
+  objects.push(cube_mesh);
   
+  scene.add(objects[0]);
 }
 
+function webgl_render() {
+  requestAnimationFrame(webgl_render);
+  renderer.render(scene, camera);
+}
 
 window.onload = webgl_start();
 </script>
