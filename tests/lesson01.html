@@ -24,7 +24,7 @@ function webgl_init() {
   renderer = new THREE.WebGLRenderer();
   
   renderer.setSize(scene_width, scene_height);
-  document.getElementByID("container").appendChild(renderer.domElement);
+  document.getElementById("container").appendChild(renderer.domElement);
 }
 
 function webgl_add_objects() {
