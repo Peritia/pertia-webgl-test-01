@@ -12,6 +12,7 @@ function webgl_start() {
 }
 
 function webgl_init() {
+  console.log("init...")
   var scene_width = 800;
   var scene_height = 800;
   var camera_field_of_view = 75;
@@ -31,13 +32,14 @@ function webgl_add_objects() {
   var cube_geometry = new THREE.CubeGeometry(1,1,1);
   var cube_texture = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
   var cube_mesh = new THREE.Mesh(cube_geometry, cube_texture);
-  cube_mesh.position.set(5, 5, 0)
+  cube_mesh.position.z = 5;
   objects.push(cube_mesh);
   
   scene.add(objects[0]);
 }
 
 function webgl_render() {
+  console.log("rendering...");
   requestAnimationFrame(webgl_render);
   renderer.render(scene, camera);
 }
@@ -45,7 +47,6 @@ function webgl_render() {
 </script>
 </head>
 <body onload="webgl_start()" >
-<h1>WebGL Test 01</h1>
 <div id="container">
 
 </div>
