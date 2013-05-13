@@ -42,10 +42,9 @@ function webgl_render() {
   renderer.render(scene, camera);
 }
 
-window.onload = webgl_start();
 </script>
 </head>
-<body>
+<body onload="webgl_start" >
 <h1>WebGL Test 01</h1>
 <div id="container">
 
